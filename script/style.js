@@ -62,9 +62,9 @@ const minutes = setTime.getMinutes();
 const seconds = setTime.getSeconds();
 const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const dayName = days[setTime.getDay()]
-const amPm = hours >= 12 ? 'PM' : 'AM';
+const amPm = hours >= 12? 'PM': 'AM';
 const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-const monthName = monthNames[setTime.getMonth()];
+const monthName= monthNames[setTime.getMonth()];
 const time = `${monthName} ${date} ${year}`
 document.getElementById('time').innerText = time;
 document.getElementById('day').innerText = `${dayName}`
