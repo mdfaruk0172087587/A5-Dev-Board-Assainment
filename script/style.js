@@ -9,14 +9,13 @@ for (const btn of btnCompleted) {
         let result = confirm("Board Updated successfully");
         const inNumber = parseInt(document.getElementById('in-number').innerText)
         const valueIn = +1;
-        const date = document.getElementById('time').innerText = new Date().toLocaleString();
         const comment = document.getElementById('comment-section')
         if (result) {
             document.getElementById('task-assigned').innerText -= 1
             document.getElementById('in-number').innerText = inNumber + valueIn
             const createDiv = document.createElement('div')
             createDiv.innerHTML = `
-         <h1 class="bg-[#F4F7FF] mb-4 rounded-xl p-2">You have Complete The Task ${titleName} at ${date}</h1>
+         <h1 class="bg-[#F4F7FF] mb-4 rounded-xl p-2">You have Complete The Task ${titleName} at ${hours}:${minutes}:${seconds} ${amPm}</h1>
          `
             comment.appendChild(createDiv)
         }
@@ -55,5 +54,19 @@ document.getElementById('Back-to-desk').addEventListener('click', function () {
     document.getElementById('chain-hidden-section').classList.add('hidden')
 })
 // time set 
-document.getElementById('time').innerText = new Date().toLocaleString();
+const setTime = new Date();
+const date = setTime.getDate();
+const year = setTime.getFullYear();
+const hours = setTime.getHours();
+const minutes = setTime.getMinutes();
+const seconds = setTime.getSeconds();
+const amPm = hours >= 12? 'PM': 'AM';
+
+const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const monthName= monthNames[setTime.getMonth()];
+
+const time = `${monthName} ${date} ${year}`
+
+
+document.getElementById('time').innerText = time;
 
